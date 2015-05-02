@@ -6,6 +6,10 @@ require "active_support/core_ext"
 require "positive_basic_support"
 require "positive_number_support"
 
+if RUBY_VERSION < "2.2"
+  require "itself"
+end
+
 [ :array , :hash ].each do | filename |
   require_relative "positive_group_support/#{ filename }_ext"
 end
